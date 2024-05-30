@@ -1,0 +1,38 @@
+* {
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 1px;
+}
+
+
+
+.features-icons {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.features-icons-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #0080ff;
+}
+
+.showcase-img {
+    background-size: cover;
+    min-height: 30rem;
+}
+
+.showcase-text {
+    padding: 8rem;
+}
+
+
+
+@media screen and (max-width: 360px) {
+    .showcase-text {
+        padding: 4rem;
+    }
+
+    .showcase-img {
+        min-height: 15rem;
+    }
+}
