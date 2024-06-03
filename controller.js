@@ -41,6 +41,7 @@ const CITYMUNS = (req, res) => {
 }
 // route controller for barangays
 const BARANGAYS = (req, res) => {
+	console.log(req.query)
 	if (req.query.provCode && req.query.citymunCode) {
 		console.log(req.query.citymunCode, " : ", req.query.provCode);
 		return res.json(require("./json/refbrgy.json")["RECORDS"].filter((item) => item.citymunCode == req.query.citymunCode && item.provCode == req.query.provCode));
