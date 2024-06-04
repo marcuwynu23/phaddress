@@ -13,11 +13,16 @@ nunjucks.configure(path.resolve(__dirname, "view"), {
   express: app,
   autoscape: true,
   noCache: false,
-	watch:true
+  watch: true,
 });
 app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("dev"));
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://192.168.1.3:3000"],
+    credentials: true,
+  })
+);
 
 app.get("/", controller.HOME);
 app.use("/api/v1/ph/regions", controller.REGIONS);
