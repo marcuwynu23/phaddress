@@ -9,12 +9,6 @@ const controller = require("./controller");
 
 const app = express();
 
-nunjucks.configure(path.resolve(__dirname, "view"), {
-  express: app,
-  autoscape: true,
-  noCache: false,
-  watch: true,
-});
 app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("dev"));
 app.use(
