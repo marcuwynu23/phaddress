@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PH Address API</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/custom.css" />
+		<style>
+			body {
+				overflow-y: auto;
+				margin: 0;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				background-color: #121212;
+				color: #ffffff;
+			}
+			main {
+				flex: 1;
+				overflow-y: auto;
+			}
+			.header-intro {
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				background-color: #1e1e1e;
+				color: #ffffff;
+			}
+			.navbar {
+				background-color: #343a40;
+			}
+			.nav-link,
+			.navbar-brand {
+				color: #ffffff !important;
+			}
+			.list-group-item {
+				background-color: #1e1e1e;
+				color: #ffffff;
+				border: 1px solid #343a40;
+			}
+			code {
+				color: #d4d4d4;
+				background-color: #2d2d2d;
+				padding: 0.2rem 0.4rem;
+				border-radius: 3px;
+			}
+			pre {
+				background-color: #2d2d2d;
+				color: #d4d4d4;
+				padding: 1rem;
+				border-radius: 5px;
+				overflow-x: auto;
+			}
+
+			.navbar-success {
+				background-color: #28a745;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<nav class="navbar py-2 navbar-expand-lg navbar-success">
+				<div class="container">
+					<a href="#" class="navbar-brand">
+						<span class="font-weight-bold">PHAddress</span>
+					</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-toggle="collapse"
+						data-target="#navbarToggler"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarToggler">
+						<ul class="navbar-nav ml-auto mb-3 mb-lg-0">
+							<li class="nav-item">
+								<a href="#" class="nav-link" aria-current="page">
+									<i class="fas fa-house"></i>
+									Home</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div id="intro" class="header-intro">
+				<div>
+					<p class="display-1 font-weight-bold">
+						<span class="text-success">PH Address</span> <span>API</span>
+					</p>
+					<p class="text-sm-center mt-0">
+						A Data API of Regions, Provinces, CityMunicipalities, and Barangay of the Philippines
+					</p>
+					<p class="mt-4">
+						Welcome to the PH Address API, your reliable source for accurate address data in the
+						Philippines. Our seamless integration simplifies tasks by providing efficient access to
+						up-to-date information, streamlining operations and ensuring reliable address data for
+						your applications.
+					</p>
+					<a href="#api-endpoints" class="btn btn-sm btn-success ml-2"> Documentation </a>
+				</div>
+			</div>
+			<div id="api-endpoints" class="container my-5">
+				<h3 class="text-center font-weight-bold text-success mt-4">API Endpoints</h3>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<strong class="text-success">GET</strong> <code>/api/v1/ph/regions</code>
+						<p>Retrieve a list of regions. Optional query parameter: <code>regCode</code></p>
+						<pre><code class="language-javascript">// Example
+fetch('/api/v1/ph/regions')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+					</li>
+					<li class="list-group-item">
+						<strong class="text-success">GET</strong> <code>/api/v1/ph/provinces</code>
+						<p>
+							Retrieve a list of provinces. Optional query parameters: <code>regCode</code>,
+							<code>provCode</code>
+						</p>
+						<pre><code class="language-javascript">// Example
+fetch('/api/v1/ph/provinces?regCode=01')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+					</li>
+					<li class="list-group-item">
+						<strong class="text-success">GET</strong> <code>/api/v1/ph/citymuns</code>
+						<p>
+							Retrieve a list of cities/municipalities. Optional query parameters:
+							<code>regCode</code>, <code>provCode</code>
+						</p>
+						<pre><code class="language-javascript">// Example
+fetch('/api/v1/ph/citymuns?provCode=0209')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+					</li>
+					<li class="list-group-item">
+						<strong class="text-success">GET</strong> <code>/api/v1/ph/barangays</code>
+						<p>
+							Retrieve a list of barangays. Optional query parameters: <code>regCode</code>,
+							<code>provCode</code>, <code>citymunCode</code>
+						</p>
+						<pre><code class="language-javascript">// Example
+fetch('/api/v1/ph/barangays?citymunCode=030801')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+					</li>
+				</ul>
+				<div>
+					<a href="#intro" class="btn btn-sm btn-success my-4"> Back to Top </a>
+				</div>
+			</div>
+		</main>
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>
