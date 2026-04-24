@@ -35,5 +35,8 @@
     "spawn-sync": "^2.0.0",
     "typescript": "^6.0.3",
     "webpack-cli": "^7.0.2"
+  },
+  "peerDependencies": {
+    "picomatch": "^2.3.1"
   }
 }
